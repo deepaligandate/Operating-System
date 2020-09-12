@@ -1,0 +1,396 @@
+Assignment_1
+
+Q1. Explore the following commands with various options, refer man pages for 
+    further help a) date b) cal c) bc d) echo e) who f) whoami g) logname g) uname h)
+    seq i) clear
+--->
+a)Date:
+1.date
+2.date +%a -day(mon)
+3.date +%A -day(monday)
+4.date +%b -day(sep)
+5.date +%B -day(september)
+6.date +%D -day(09/07/2020)
+7.date +%F -day(2020/09/07)
+
+b)cal:
+1.cal -gives current month calender
+2.cal 2020 -gives 2020 year calender
+3.cal sep 2020 -gives sep month calender
+
+c)bc(basic calculator):
+1.echo "4+7" |bc  =>28
+
+d) echo:We can redirect the output from echo and either create text files or write into existing text files.
+
+e)who :
+who displays a list of users who are currently logged into the computer. 
+
+f)whoami:Whoami command to obtain information on the currently logged-on user
+=>uni-ash
+
+g)logname:login name of the current (or calling) user. 
+
+h)uname:name of the operating system that you are using. 
+
+i)seq:seq command in Linux is used to generate numbers from FIRST to LAST in steps of INCREMENT.
+
+j)clear:for clearing screen
+----------------------------------------------------------------------------
+Q2.	A) Create three directory a b and c and create a.txt,b.txt and c.txt
+		in each directory respectively and then copy c directory into 	the a.
+	B)Move Directory b to c.
+	C)Create alias of ls -lh command to your name.
+	D)Change Directory name a to cdac.
+---->
+a)mkdir a b c
+  mv c a
+..........
+b)mv b c 
+
+c) alias ashwini="ls -lh"
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ ashwini
+total 0
+drwxrwxrwx 1 uni-ash uni-ash 4.0K Sep  7 23:04 a
+-rw-rw-rw- 1 uni-ash uni-ash    6 Sep  7 17:26 abc.sd
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 23:04 b.txt
+drwxrwxrwx 1 uni-ash uni-ash 4.0K Sep  7 23:05 c
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 23:04 c.txt
+drwxrwxrwx 1 uni-ash uni-ash 4.0K Sep  7 19:04 d1
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:57 f2.txt
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:58 f3
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:57 f3.txt
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:58 f4
+
+d) mv a cdac
+-----------------------------------------------------------------------------
+
+Q3. A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
+    file5.txt with some text inside it. Search for 's' character
+    inside all the files using grep command.
+    Also Use cat to view all file content together.
+	B)Create file.txt using cat and edit that using nano editor.
+	c)Create 5 empty files using touch command
+	D)Remove previously created directory a , b and c.
+
+--->a)grep 's' file[1-5]
+file1:sahil
+file1:sushant
+file1:sushil
+file1:suneeta
+file1:syali
+file1:sukanya
+file2:ashu
+file2:shravani
+file2:sujit
+
+b)cat >file
+.........
+
+c) touch s1>s2>s3>s4>s5
+
+d)rm a
+rm b
+rm c
+---------------------------------------------------------------------------
+
+Q4. Create a file with some content using vi editor
+	a) Display the file using cat command
+	b) Display line numbers along with content
+	c) Display the file in reverse order using tac
+	d) Combine multiple files using cat command
+
+--->
+a)uni-ash@DESKTOP-TCF8H4O:~/ashwini$ vi b1
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ cat b1
+file using vi editor
+
+b) uni-ash@DESKTOP-TCF8H4O:~/ashwini$ cat -n b1
+     1  file using vi editor
+-----------------------------------------------------------------------------
+c)uni-ash@DESKTOP-TCF8H4O:~/ashwini$ cat b1
+file using vi editor
+use tac command
+apply it here
+
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ tac -r b1
+
+apply it here
+use tac command
+file using vi editor
+--------------------------------------------------------------------------------
+d)uni-ash@DESKTOP-TCF8H4O:~/ashwini$ cat file1
+sahil
+sushant
+sushil
+suneeta
+syali
+sukanya
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ cat file2
+ashu
+shravani
+sujit
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ cat file1 file2>b2
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ cat b2
+sahil
+sushant
+sushil
+suneeta
+syali
+sukanya
+ashu
+shravani
+sujit
+------------------------------------------------------------------------------------
+Q5. Create Random some files and sub directories.
+	a) display files row wise, column wise, 1 per row
+	b) sort the files in ascending, descending order
+	c) Create some hidden files and sub directories and display them using “ls -a”
+	d) Change time stamp of some files and directories using touch command and display the files using ls -t ls -rt
+	e) Recursive display contents of your home directory.
+	f) display all attributes of files and directories using ls -l
+	g) display attributes of a directory using ls -ld
+---->
+a)i.row wise=cat b1
+a)ii.column wise=column filename
+eg.column b1
+a)iii.1 per row=
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ seq 1 5
+1
+2
+3
+4
+5
+---------------------------------------------------------------------------------
+b)ascending order-
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ sort file1
+sahil
+sukanya
+suneeta
+sushant
+sushil
+syali
+
+*descending order-
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ sort -r file1
+syali
+sushil
+sushant
+suneeta
+sukanya
+sahil
+--------------------------------------------------------------------------
+c)uni-ash@DESKTOP-TCF8H4O:~/ashwini$ cat>.p1
+i am hidden file
+you want see me
+yes
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ ls
+abc.sd  b.txt  f2.txt  f5         file2.txt  file5            nano.save
+b1      cdac   f3      file1      file3      file.txt         xyz.html.p
+b2      c.txt  f3.txt  file1.txt  file3.txt  ijfike
+b3      d1     f4      file2      file4      jjjjk.exe.sjisj
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ ls -a
+.       b2     c.txt   f3.txt  file1.txt  file3.txt  ijfike           .swp
+..      b3     d1      f4      file2      file4      jjjjk.exe.sjisj  xyz.html.p
+abc.sd  b.txt  f2.txt  f5      file2.txt  file5      nano.save
+b1      cdac   f3      file1   file3      file.txt   .p1
+----------------------------------------------------------------------
+d)uni-ash@DESKTOP-TCF8H4O:~/ashwini$ touch -c b.txt
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ ls
+abc.sd  b.txt  f2.txt  f5         file2.txt  file5            nano.save
+b1      cdac   f3      file1      file3      file.txt         stampchange
+b2      c.txt  f3.txt  file1.txt  file3.txt  ijfike           xyz.html.p
+b3      d1     f4      file2      file4      jjjjk.exe.sjisj
+
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ ls -t
+b.txt        b2         file.txt  file5  cdac   f3  f3.txt  file2.txt        abc.sd
+stampchange  b1         file2     file3  c.txt  f4  f2.txt  jjjjk.exe.sjisj  file3.txt
+b3           nano.save  file1     file4  d1     f5  ijfike  xyz.html.p       file1.txt
+
+uni-ash@DESKTOP-TCF8H4O:~/ashwini$ ls -rt
+file1.txt  xyz.html.p       ijfike  f5  d1     file4  file1     nano.save  b3
+file3.txt  jjjjk.exe.sjisj  f2.txt  f4  c.txt  file3  file2     b1         stampchange
+abc.sd     file2.txt        f3.txt  f3  cdac   file5  file.txt  b2         b.txt
+------------------------------------------------------------------------------
+e)uni-ash@DESKTOP-TCF8H4O:~/ashwini$ ls -r
+xyz.html.p       ijfike    file3.txt  file1.txt  f3.txt  c.txt  b2
+stampchange      file.txt  file3      file1      f3      cdac   b1
+nano.save        file5     file2.txt  f5         f2.txt  b.txt  abc.sd
+jjjjk.exe.sjisj  file4     file2      f4         d1      b3
+-----------------------------------------------------------------------------
+f)uni-ash@DESKTOP-TCF8H4O:~/ashwini$ ls -l
+total 0
+-rw-rw-rw- 1 uni-ash uni-ash    6 Sep  7 17:26 abc.sd
+-rw-rw-rw- 1 uni-ash uni-ash   53 Sep  8 14:51 b1
+-rw-rw-rw- 1 uni-ash uni-ash   63 Sep  8 14:52 b2
+-rw-rw-rw- 1 uni-ash uni-ash   52 Sep  8 15:18 b3
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  8 15:35 b.txt
+drwxrwxrwx 1 uni-ash uni-ash 4096 Sep  7 23:04 cdac
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 23:04 c.txt
+drwxrwxrwx 1 uni-ash uni-ash 4096 Sep  7 19:04 d1
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:57 f2.txt
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:58 f3
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:57 f3.txt
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:58 f4
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:58 f5
+-rw-rw-rw- 1 uni-ash uni-ash   43 Sep  7 23:22 file1
+-rw-rw-rw- 1 uni-ash uni-ash   54 Sep  7 16:48 file1.txt
+-rw-rw-rw- 1 uni-ash uni-ash   20 Sep  7 23:23 file2
+-rw-rw-rw- 1 uni-ash uni-ash   19 Sep  7 18:50 file2.txt
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 23:20 file3
+-rw-rw-rw- 1 uni-ash uni-ash   86 Sep  7 16:54 file3.txt
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 23:20 file4
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 23:20 file5
+-rw-rw-rw- 1 uni-ash uni-ash   18 Sep  7 23:27 file.txt
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  7 18:55 ijfike
+-rw-rw-rw- 1 uni-ash uni-ash    5 Sep  7 17:34 jjjjk.exe.sjisj
+-rw------- 1 uni-ash uni-ash   19 Sep  7 23:30 nano.save
+-rw-rw-rw- 1 uni-ash uni-ash    0 Sep  8 15:33 stampchange
+-rw-rw-rw- 1 uni-ash uni-ash   11 Sep  7 17:27 xyz.html.p
+------------------------------------------------------------------------------
+g)uni-ash@DESKTOP-TCF8H4O:~$ ls -ld
+drwxr-xr-x 1 uni-ash uni-ash 4096 Sep  8 15:18 .
+
+---------------------------------------------------------------------------------
+
+==================================================================================
+Q1. Create directory of your name and then create 4 files inside it named
+	a.txt, b.txt, c.txt and d.sh. And change the directory permission to
+	only user and also files permission to only user such that
+		a)user can read and write the file a.txt and b.txt
+		b)user can write the file c.txt
+		c)user can exectuable the file d.sh. Make
+			Contents of file d.sh:
+			#/bin/sh
+			ls -lh
+--->
+a)uni-ash@DESKTOP-TCF8H4O:~$ cd Ashwini
+uni-ash@DESKTOP-TCF8H4O:~/Ashwini$ ls
+a.txt  b.txt  c.txt  d.sh
+uni-ash@DESKTOP-TCF8H4O:~/Ashwini$ chmod 666 b.txt
+uni-ash@DESKTOP-TCF8H4O:~/Ashwini$ vi b.txt
+uni-ash@DESKTOP-TCF8H4O:~/Ashwini$ chmod 666 a.txt
+
+b)uni-ash@DESKTOP-TCF8H4O:~/Ashwini$ chmod -w- c.txt
+
+c)chmod 711 d.sh
+uni-ash@DESKTOP-TCF8H4O:~/Ashwini$ ./d.sh
+total 0
+-rw-rw-rw- 1 uni-ash uni-ash 14 Sep  8 16:03 a.txt
+-rw-rw-rw- 1 uni-ash uni-ash 22 Sep  8 16:06 b.txt
+-r-xr-xr-x 1 uni-ash uni-ash  0 Sep  8 15:54 c.txt
+-rwx--x--x 1 uni-ash uni-ash 16 Sep  8 15:57 d.sh
+--------------------------------------------------------------------
+Q2. Change the permission of the previous directory to executable only.
+	Analyze the output.
+--->uni-ash@DESKTOP-TCF8H4O:~$ chmod 711 Ashwini
+
+Q3. Change the permission of the previous directory to read only.
+	Analyze the output.
+-->
+uni-ash@DESKTOP-TCF8H4O:~$ chmod 774 Ashwini
+
+Q4. Use echo to list the all files of your home directory.
+-->echo *
+Q5. Use echo to list the all files of /etc/ directory
+-->echo /etc/*
+Q6. Use echo to list the all files of /etc/ directory with extension name .conf
+-->uni-ash@DESKTOP-TCF8H4O:~$ echo /etc/*.config
+/etc/manpath.config
+Q7. Use echo to append your name to a.txt
+-->uni-ash@DESKTOP-TCF8H4O:~$ echo "Ashwini">file1
+uni-ash@DESKTOP-TCF8H4O:~$ cat file1
+Ashwini
+
+==================================================================================
+
+Note:Many operation might not work.Analyze them
+1.	Create Three level nested directory a,b and c
+a)Create at least one hidden file in each directory
+b)Create at least one normal text file in each directory
+c)Copy c into a
+d)Copy file inside a into b
+---->
+a)
+uni-ash@DESKTOP-TCF8H4O:~/a$ cat .a
+uni-ash@DESKTOP-TCF8H4O:~/a/b$ vi .a
+uni-ash@DESKTOP-TCF8H4O:~/a/b/c$ cat .a
+b)
+uni-ash@DESKTOP-TCF8H4O:~/a/b/c$ cat >a.txt
+uni-ash@DESKTOP-TCF8H4O:~/a/b$ cat>a.txt
+uni-ash@DESKTOP-TCF8H4O:~/a$ cat >a.txt
+
+c)uni-ash@DESKTOP-TCF8H4O:~$ mv c a
+----------------------------------------------------------------------
+2.	Change the third level directory c permission to read only
+-->uni-ash@DESKTOP-TCF8H4O:~/a/b$ chmod 744 c
+-------------------------------------------------------------------
+3.	Try copying third level c directory to outside of a
+--->
+uni-ash@DESKTOP-TCF8H4O:~/a/b$ cp -R c ~/uni-ash
+ 
+------------------------------------------------------------------             
+4.	Create the directory  “data“ inside b
+--> 
+uni-ash@DESKTOP-TCF8H4O:~/a/b$ mkdir data
+uni-ash@DESKTOP-TCF8H4O:~/a/b$ ls
+a.txt  c  data
+ -------------------------------------------------------------------
+5.	Change the permission of b to read and write only
+-->uni-ash@DESKTOP-TCF8H4O:~/a$ chmod 766 b
+--------------------------------------------------------------------
+6.	Create directory “data2”  inside b
+-->uni-ash@DESKTOP-TCF8H4O:~/a/b$ mkdir data2
+
+------------------------------------------------------------------
+7.	Create data.txt file inside b
+--->uni-ash@DESKTOP-TCF8H4O:~/a/b$ cat >data.txt
+----------------------------------------------------------------------
+8.	Rename the second level directory c to copied_dir
+-->
+uni-ash@DESKTOP-TCF8H4O:~/a/b$ mv c copied_dir
+-------------------------------------------------------------------
+9.	Change permission of copied_dir to only executable
+-->uni-ash@DESKTOP-TCF8H4O:~/a/b$ chmod 771 copied_dir
+---------------------------------------------------------------------
+10.	Try ls on copied_dir
+-->uni-ash@DESKTOP-TCF8H4O:~/a/b/copied_dir$ ls
+a.txt
+--------------------------------------------------------------------
+11.	Try moving copied_dir to outside of a
+--->uni-ash@DESKTOP-TCF8H4O:~/a/b$ cp -r copied_dir ~/uni-ash
+--------------------------------------------------------------------
+12.	Try moving data directory outside of a
+-->mv data ~/home/
+--------------------------------------------------------------------
+13.	Now change the owner of the directory a to root
+-->chown -R root a
+-------------------------------------------------------------------
+14.	Change permission of a to read write and executable to only user
+-->chmod 700
+-----------------------------------------------------------------
+15.	Try creating directory sample inside a
+-->uni-ash@DESKTOP-TCF8H4O:~/a$ mkdir sample
+--------------------------------------------------------------
+16.	Create directory x outside a
+--> uni-ash@DESKTOP-TCF8H4O:~$ mkdir x
+---------------------------------------------------------------------
+17.	Try moving x inside a
+-->uni-ash@DESKTOP-TCF8H4O:~$ mv x a
+------------------------------------------------------------------
+18.	Create directory movies
+-->uni-ash@DESKTOP-TCF8H4O:~$ mkdir movies
+--------------------------------------------------------------------
+19.	Change group of movies to sudo
+-->chgrp movies sudo
+
+20.	Change group of movies to avahi
+-->
+21.	Try changing permission after changing ownership to root
+22.	Try Changing permission after changing group to sudo without sudo
+23.	Try Changing owner and group both to root
+24.	Try changinging permission
+25.	Try deleting the file
+
+	
+	

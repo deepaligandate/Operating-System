@@ -1,0 +1,455 @@
+Assignment-2
+
+1. Write a script to create 10 directories, say a1,a2,...,a10
+Report error if a directory/file exists with the same name.
+--->
+#!/bin/bash
+for i in {1..10}
+do
+        mkdir a$i
+done
+exit 0
+...........
+output:
+uni-ash@DESKTOP-TCF8H4O:~$ ./a2_1.sh
+mkdir: cannot create directory ‘a1’: File exists
+mkdir: cannot create directory ‘a2’: File exists
+uni-ash@DESKTOP-TCF8H4O:~$ ls
+-     a2       a7       as.txt      dsss      fork1.sh   movies     s3
+1.sh  a2_1.sh  a8       c           file1     fork.sh    p1         s4
+2.sh  a3       a9       cal.sh      file1.sh  head.txt   root_dir   s5
+a     a4       ash      cdac        file2.sh  hello all  root-dir1  shell
+a1    a5       ashwini  copied_dir  file3.sh  hello.sh   s1         shell-ps.sh
+a10   a6       Ashwini  digit.txt   file4.sh  if         s2
+-------------------------------------------------------------------------
+2. Write a menu based script to perform following string operations
+a) To find length of a string
+c) Copying string
+d) Concatenation of strings
+e) Compare two strings
+f) Reversing a string
+-->
+#!/bin/bash
+echo "give string"
+read string
+#finding length of string
+len=echo "length=${#string}"
+
+#copying string
+abc = $string
+echo "newstring=$string"
+
+#concat strings
+str1="sai"
+str2="baba"
+echo conatstring= $str1$str2
+
+#reversing a string
+echo "$string" | rev
+
+#comparing string
+read -p "enter str1:" str1
+read -p "enter str2:" str2
+
+if [[ "$str1" == "$str2" ]]; then
+        echo "both are equal"
+else
+        echo "both are unequal"
+fi
+
+....
+output:
+uni-ash@DESKTOP-TCF8H4O:~$ ./a2_2.sh
+give string
+ashwini
+./a2_2.sh: line 5: length=7: command not found
+./a2_2.sh: line 8: abc: command not found
+newstring=ashwini
+conatstring= saibaba
+iniwhsa
+enter str1:compare
+enter str2:comparee
+both are unequal
+-------------------------------------------------------------------------
+3.Write a shell script to rename all files in the current directory with numeric continuous value(Warning: Do this in a personal folder. Don't use Home directory) 
+-->
+for file in *.txt;
+do
+mv "$file" "${file/as.txt/_new.txt}";
+done
+............
+output-     
+uni-ash@DESKTOP-TCF8H4O:~$ ls
+-     a2_1.sh  a7       cdac        f3        fork1.sh   movies     s3           t.c
+1.sh  a2_2.sh  abc      copied_dir  file1     fork.c     _new.txt   s4
+................................................................................
+
+4. Write a script that print environment variable(Print $HOME,$PATH,$SHELL,$HISTORY,$LOGNAME,$TERM)
+-->
+echo 'Home-'$HOME
+echo 'Path-'$PATH
+echo 'Shell-'$SHELL
+echo 'History-'$HISTORY
+echo 'Logname-'$LOGNAME
+echo 'Term-'$TERM
+~                      
+..........
+output-
+uni-ash@DESKTOP-TCF8H4O:~$ ./a2_4.sh
+Home-/home/uni-ash
+Path-/home/uni-ash/bin:/home/uni-ash/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu16.04onWindows_2020.1604.14.0_x64__79rhkp1fndgsc:/mnt/c/Users/Admin/gcc/bin:/mnt/c/Users/Admin/gcc/libexec/gcc/i686-pc-mingw32/7.0.1:/mnt/c/ProgramData/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/nodejs/:/mnt/c/Users/Admin/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/Users/Admin/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Admin/AppData/Roaming/npm:/snap/bin
+Shell-/bin/bash
+History-
+Logname-uni-ash
+Term-xterm-256color
+...........................................................................................
+
+5. Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut commands)
+-->
+uni-ash@DESKTOP-TCF8H4O:~$ stat --format=%A t.c | cut -c 2-4
+rwx
+
+or
+ echo $`ls -l | cut -c 2-4`
+ --------------------------------------------------------------------------------------
+6. Write a shell script to print all files permissions and name of file
+-->echo $`ls -al`
+.....
+output-
+uni-ash@DESKTOP-TCF8H4O:~$ ./a2_6.sh
+$total 56 -rw-rw-rw- 1 uni-ash uni-ash 36 Apr 15 11:14 - drwxr-xr-x 1 uni-ash uni-ash 4096 Sep 11 22:14 . drwxr-xr-x 1 root root 4096 Apr 15 11:19 .. -rwxrwxrwx 1 uni-ash uni-ash 41 Apr 22 13:51 1.sh -rwxrwxrwx 1 uni-ash uni-ash 460 Apr 22 15:01 2.sh drwxrwxrwx 1 uni-ash uni-ash 4096 Sep 10 11:58 a drwxrwxrwx 1 uni-ash uni-ash 4096 Apr 15 10:15 a1 drwxrwxrwx 1 uni-ash uni-ash 4096 Sep 9 10:13 a10 drwxrwxrwx 1 uni-ash uni-ash 4096 Apr 15 10:15 a2 -rwxrwxrwx 1 uni-ash uni-ash 56 Sep 9 18:44 a2_1.sh -rwxrwxrwx 1 uni-ash uni-ash 430 Sep 9 17:40 a2_2.sh -rwxrwxrwx 1 uni-ash uni-ash 68 Sep 11 21:32 a2_3.sh -rw------- 1 uni-ash uni-ash 12288 Sep 9 18:57 .a2_3.sh.swp -rwxrwxrwx 
+........................................
+
+7.Write a shell script to print all files name and size greater than 5K
+-->
+find / -size 5k
+or
+find -type f -size +5k -ls
+................
+output-
+uni-ash@DESKTOP-TCF8H4O:~$ find -type f -size +5k -ls
+10414574138354376     12 -rw-------   1 uni-ash  uni-ash     12288 Sep  9 18:57 ./.a2_3.sh.swp 3096224743829688     12 -rw-------   1 uni-ash  uni-ash     11736 Sep 11 15:32 ./.bash_history
+18295873486216547     16 -rw-------   1 uni-ash  uni-ash      6725 Sep 11 22:14 ./.viminfo
+ 2251799814304667     12 -rw-------   1 uni-ash  uni-ash     12288 Sep  8 16:01 ./Ashwini/.a.txt.swp
+ 7881299348053796     12 -rw-------   1 uni-ash  uni-ash     12288 Sep  8 16:04 ./Ashwini/.b.txt.swp
+ 8444249301383651     12 -rw-------   1 uni-ash  uni-ash     12288 Sep  8 16:08 ./Ashwini/.c.txt.swp
+ 
+
+
+
+=================================================================================================================
+
+
+1. Write a script To check given year is leap or not.
+-->
+echo "Enter the number"
+read a
+y=` expr $a % 4 && $a % 400 `
+if [ "$y" -eq "0" ]
+then
+echo "It is a leap year"
+else 
+echo "It is not a leap year"
+fi
+
+
+
+
+#Output
+#Enter the number
+#2040
+#It is a leap year
+------------------------------------------------------------------
+2. Write a script to print day of the week using
+	a) elif	b) case
+-->
+*script using Elseif
+echo "Enter the choice between 1 to 7"
+read choice
+if [[ $choice -eq 1 ]]; then echo "Sunday"
+elif [[ $choice -eq 2 ]]; then echo "Monday"
+elif [[ $choice -eq 3 ]]; then echo "Tuesday"
+elif [[ $choice -eq 4 ]]; then echo "Wednesday"
+elif [[ $choice -eq 5 ]]; then echo "Thursday"
+elif [[ $choice -eq 6 ]]; then echo "Friday"
+elif [[ $choice -eq 7 ]]; then echo "Saturday"
+else
+echo "Invalid choice"
+fi
+
+output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./IfelseDay.sh
+Enter the choice between 1 to 7
+5
+Thursday
+
+* script using case
+echo "Enter the choice between 1 to 7"
+read choice
+case $choice in
+1)echo "Sunday";;
+2)echo "Monday";;
+3)echo "Tuesday";;
+4)echo "Wednesday";;
+5)echo "Thursday";;
+6)echo "Friday";;
+7)echo "Saturday";;
+*)echo "Invalid choice"
+esac
+
+#output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./caseDay.sh
+Enter the choice between 1 to 7
+9
+Invalid choice
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./caseDay.sh
+Enter the choice between 1 to 7
+5
+Thursday
+---------------------------------------------------------------------------
+3. a) Write a script to find biggest of three no.s
+   b) To find avg of 3 no.s, read no.s from keyboard
+-->a)
+echo "Enter 1st number"
+read n1
+echo "Enter 2nd number"
+read n2
+echo "Enter 3rd number"
+read n3
+
+if [ $n1 -gt $n2 ] && [ $n2 -gt $n3 ]; then
+echo "$n1 is greater"
+elif [ $n2 -gt $n1 ] && [ $n1 -gt $n3 ]; then
+echo "$n2 is greater"
+else
+echo "$n3 is greater"
+fi
+
+output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./greater3.sh
+Enter 1st number
+4
+Enter 2nd number
+2
+Enter 3rd number
+5
+5 is greater
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./greater3.sh
+Enter 1st number
+89
+Enter 2nd number
+23
+Enter 3rd number
+1
+89 is greater
+
+b)
+echo "Enter 1st number"
+read n1
+echo "Enter 2nd number"
+read n2
+echo "Enter 3rd number"
+read n3
+sum=$(($n1+$n2+$n3))
+echo avg=$(($sum/3))   
+
+output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ vi avgof3.sh
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./avgof3.sh
+Enter 1st number
+5
+Enter 2nd number
+4
+Enter 3rd number
+3
+avg=4
+---------------------------------------------------------------------------
+4. Write a program to check whether given no.is even or odd
+-->
+echo "Enter number"
+read num
+if [[ $(($num%2)) == '0' ]];
+then
+echo "Number is Even"
+else
+echo "Number is Odd"
+fi
+
+output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./even_odd.sh
+Enter number
+4
+Number is Even
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./even_odd.sh
+Enter number
+5
+Number is Odd
+----------------------------------------------------------------------------------------
+5. Write a program to print calendar of current month in next year,previous years.
+	For eg:-sep 2014,sep 2012 if current month is sep 2013	
+-->
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ cal sep 2014 | cal sep 2012 |cal sep 2013
+   September 2013
+Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7
+ 8  9 10 11 12 13 14
+15 16 17 18 19 20 21
+22 23 24 25 26 27 28
+29 30
+
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ cal sep 2014
+   September 2014
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6
+ 7  8  9 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30
+
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ cal sep 2012
+   September 2012
+Su Mo Tu We Th Fr Sa
+                   1
+ 2  3  4  5  6  7  8
+ 9 10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30
+--------------------------------------------------------------------------------------------
+6. Write a program to find sum and product of two no.s using 
+	a) let 
+	b)expr
+	c)bc
+-->
+a)let
+let a=4
+let b=2
+product=$(($a*$b))
+echo $product
+
+output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./calculator.sh
+8
+
+b)expr
+
+read x
+read y
+echo `expr $x \* $y`
+
+output:-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./calculator.sh
+Enter x
+4
+Enter y
+3
+product:
+12
+
+c)bc
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ echo "5*4" | bc
+20
+
+-----------------------------------------------------------------------------
+7. Write a script to generate Fibonacci series.
+-->
+n=10
+a=0
+b=1
+echo "The fibonaccci series is: "
+for (( i=0; $i<n; i++))
+do
+echo -n "$a "
+fn=$((a+b))
+a=$b
+b=$fn
+done
+
+#output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./fibonacci.sh
+The fibonaccci series is:
+0 1 1 2 3 5 8 13 21 34
+----------------------------------------------------------------------------
+8. Write a shell script to reverse the single strings. 
+-->
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ echo "sainath" |rev
+htanias
+----------------------------------------------------------------------------
+9.Write a shell script to reverse the list of strings and reverse each string further in the list.
+-->read input
+reverse=""
+
+len=${#input}
+for (( i=$len-1; i>=0; i-- ))
+do
+        reverse="$reverse${input:$i:1}"
+done
+
+echo "$reverse"
+
+#output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./reverse.sh
+Hello I am Working on it
+ti no gnikroW ma I olleH
+----------------------------------------------------------------------------
+10. Write a shell script to print the reverse of an input number.
+-->read input
+reverse=""
+
+len=${#input}
+for (( i=$len-1; i>=0; i-- ))
+do
+        reverse="$reverse${input:$i:1}"
+done
+
+echo "$reverse"
+
+#output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./reverse.sh
+3456782
+2876543
+
+Or
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ echo 2000 |rev
+0002
+
+=================================================================================================================
+
+
+
+
+
+
+1.Write a shell script to validate password strength. Here are a few assumptions for the password string.
+Length  – minimum of 8 characters.
+Contain both alphabet and number.
+Include both the small and capital case letters.
+If the password doesn’t comply with any of the above conditions, then the script should report it as a <Weak Password>.
+
+-->
+echo "Enter Password"
+read password
+len="${#password}"
+if [ $len -ge 8 ]; then
+ echo "$password" | grep -q [0-9]
+  if [ $? -eq 0 ]; then
+        echo "$password" | grep -q [A-Z]
+         if [ $? -eq 0 ]; then
+           echo "password" | grep -q [a-z]
+                if [ $? -eq 0 ]; then
+                   echo "Strong Password"
+                else
+                   echo "Weak password"
+                fi
+         fi
+  fi
+fi
+
+#output-
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$ ./validatePass.sh
+Enter Password
+Ashwini472w
+Strong Password
+uni-ash@DESKTOP-TCF8H4O:~/assign2script$
+==================================================================================================================
+------------------------------------------------------------------------------------------------------------------
